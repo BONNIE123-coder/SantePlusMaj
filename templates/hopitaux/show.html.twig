@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hopitaux{% endblock %}
+
+{% block body %}
+    <h1>Hopitaux</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hopitaux.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ hopitaux.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ hopitaux.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ hopitaux.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hopitaux_index') }}">back to list</a>
+
+    <a href="{{ path('app_hopitaux_edit', {'id': hopitaux.id}) }}">edit</a>
+
+    {{ include('hopitaux/_delete_form.html.twig') }}
+{% endblock %}

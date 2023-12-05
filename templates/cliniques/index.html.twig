@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cliniques index{% endblock %}
+
+{% block body %}
+    <h1>Cliniques index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Region</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for clinique in cliniques %}
+            <tr>
+                <td>{{ clinique.id }}</td>
+                <td>{{ clinique.nom }}</td>
+                <td>{{ clinique.adresse }}</td>
+                <td>{{ clinique.telephone }}</td>
+                <td>{{ clinique.region }}</td>
+                <td>
+                    <a href="{{ path('app_cliniques_show', {'id': clinique.id}) }}">show</a>
+                    <a href="{{ path('app_cliniques_edit', {'id': clinique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cliniques_new') }}">Create new</a>
+        <a href="{{ path('app_list_cliniques') }}">Back Home</a>
+
+{% endblock %}

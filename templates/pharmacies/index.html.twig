@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pharmacies index{% endblock %}
+
+{% block body %}
+    <h1>Pharmacies index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>Region</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pharmacy in pharmacies %}
+            <tr>
+            
+                <td>{{ pharmacy.id }}</td>
+                <td>{{ pharmacy.nom }}</td>
+                <td>{{ pharmacy.telephone }}</td>
+                <td>{{ pharmacy.adresse }}</td>
+                <td>{{ pharmacy.region }}</td>
+                <td>
+                    <a href="{{ path('app_pharmacies_show', {'id': pharmacy.id}) }}">show</a>
+                    <a href="{{ path('app_pharmacies_edit', {'id': pharmacy.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_pharmacies_new') }}">Create new</a>
+            <a href="{{ path('app_list_pharmacies') }}">Back Home</a>
+
+{% endblock %}

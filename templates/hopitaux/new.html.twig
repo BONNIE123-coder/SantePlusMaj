@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Hopitaux{% endblock %}
+
+{% block body %}
+    <h1>Create new Hopitaux</h1>
+
+    {{ include('hopitaux/_form.html.twig') }}
+
+    <a class="btn-danger" href="{{ path('app_list_hopitaux') }}">back to list</a>
+{% endblock %}
